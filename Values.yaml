@@ -1,0 +1,21 @@
+kube-prometheus-stack:
+  prometheus:
+    service:
+      type: NodePort
+      nodePort: 30090
+    prometheusSpec:
+      retention: 7d
+      resources:
+        requests:
+          cpu: 250m
+          memory: 512Mi
+
+  grafana:
+    enabled: true
+    adminPassword: "ChangeMe123!"
+    service:
+      type: NodePort
+      nodePort: 30300
+
+  alertmanager:
+    enabled: true
